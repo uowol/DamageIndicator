@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="서비스">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="isServiced"
+            android:switchTextOff="오프"
+            android:switchTextOn="온"
+            android:title="서비스 실행"
+            />
+        <Preference
+            android:key="color"
+            android:title="색"
+            android:summary="텍스트의 색을 변경합니다."
+            />
+        <Preference
+            android:title="사이즈"
+            android:key="size"
+            android:summary="텍스트의 사이즈를 변경합니다."
+            />
+        <Preference
+            android:title="단위"
+            android:key="unit"
+            android:summary="데이터 사용량의 단위를 설정합니다."
+            />
+        <Preference
+            android:title="폰트"
+            android:key="font"
+            android:summary="텍스트의 폰트를 설정합니다."
+            />
+        <Preference
+            android:title="애니메이션"
+            android:key="anim"
+            android:summary="텍스트의 애니메이션을 변경합니다."
+            />
+        <Preference
+            android:title="지속시간"
+            android:key="time"
+            android:summary="텍스트가 사라지는데까지의 시간을 설정합니다."
+            />
+        <Preference
+            android:title="한계수"
+            android:key="limit"
+            android:summary="한번에 나오는 텍스트 수의 한계를 설정합니다."
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="설정" >
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="autoStart"
+            android:summary="부팅시 자동 실행합니다."
+            android:switchTextOff="오프"
+            android:switchTextOn="온"
+            android:title="자동 실행" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="critical"
+            android:summary="설정 단위수보다 1.5배 이상 많은 데이터 소요 시 '크리티컬'이 터집니다. XD"
+            android:switchTextOff="오프"
+            android:switchTextOn="온"
+            android:title="크리티컬" />
+
+
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="MB">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="MB"
+            android:switchTextOff="오프"
+            android:switchTextOn="온"
+            android:title="메가바이트"
+            />
+        <CheckBoxPreference
+            android:key="1MB"
+            android:title="1메가바이트"
+            android:dependency="MB"
+            />
+        <CheckBoxPreference
+            android:key="5MB"
+            android:title="5메가바이트"
+            android:dependency="MB"
+            />
+        <CheckBoxPreference
+            android:key="10MB"
+            android:title="10메가바이트"
+            android:dependency="MB"
+            />
+        <CheckBoxPreference
+            android:key="100MB"
+            android:title="100메가바이트"
+            android:dependency="MB"
+            />
+        <EditTextPreference
+            android:key="typing_MB"
+            android:title="직접입력"
+            android:dependency="MB"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="KB (추천하지 않아요)">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="KB"
+            android:switchTextOff="오프"
+            android:switchTextOn="온"
+            android:title="킬로바이트" />
+        <CheckBoxPreference
+            android:key="100KB"
+            android:title="100킬로바이트"
+            android:dependency="KB"
+            />
+        <CheckBoxPreference
+            android:key="200KB"
+            android:title="200킬로바이트"
+            android:dependency="KB"
+            />
+        <CheckBoxPreference
+            android:key="500KB"
+            android:title="500킬로바이트"
+            android:dependency="KB"
+            />
+        <EditTextPreference
+            android:key="typing_KB"
+            android:title="직접입력"
+            android:dependency="KB"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>

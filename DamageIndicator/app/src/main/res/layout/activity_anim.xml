@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <it.neokree.materialtabs.MaterialTabHost
+        android:id="@+id/tab"
+        app:textColor="#FFFFFF"
+        app:primaryColor="@color/colorPrimary"
+        app:accentColor="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tab" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="선택"
+        android:id="@+id/btn_anim_enter"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignBottom="@+id/viewPager" />
+</RelativeLayout>
