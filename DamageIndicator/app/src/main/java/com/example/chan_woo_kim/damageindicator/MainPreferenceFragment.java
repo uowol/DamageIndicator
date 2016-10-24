@@ -2,6 +2,7 @@ package com.example.chan_woo_kim.damageindicator;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -62,7 +63,7 @@ public class MainPreferenceFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPref = getActivity().getSharedPreferences("data", getActivity().MODE_PRIVATE);
+        mPref = getActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
         mEditor = mPref.edit();
         addPreferencesFromResource(R.xml.pref_main);
         int defaultColorR = mPref.getInt("R",0);
@@ -75,8 +76,8 @@ public class MainPreferenceFragment extends PreferenceFragment {
         switchPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object o) {
-                int unit = mPref.getInt("unit",-1);
-                int type = mPref.getInt("type",-1);
+                int unit = mPref.getInt("unit",0);
+                int type = mPref.getInt("type",0);
                 int anim = mPref.getInt("anim",4);
                 int limit = mPref.getInt("limit",1);
                 int time = mPref.getInt("time",1);

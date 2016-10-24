@@ -40,6 +40,7 @@ public class WindowService extends Service {
     //intent로 받을것들
     private int type;
     private int unit;
+    private int unit_value;
     private int anim;
     private int limit;
     private int time;
@@ -65,8 +66,8 @@ public class WindowService extends Service {
         Log.e("Now", "onStartCommand");
 
         if (intent != null) {
-            type = intent.getIntExtra("type", -1);
-            unit = intent.getIntExtra("unit", -1);
+            type = intent.getIntExtra("type", 0);
+            unit = intent.getIntExtra("unit", 0);
             anim = intent.getIntExtra("anim", 0);
             limit = intent.getIntExtra("limit", 1);
             time = intent.getIntExtra("time", 1);
@@ -127,9 +128,9 @@ public class WindowService extends Service {
             mDataUsage = TrafficStats.getMobileRxBytes() + TrafficStats.getMobileTxBytes();
             double val = 0;
             if (type == 0) {
-                val = (mDataUsage - mOldDataUsage) / KB;
-            } else if (type == 1) {
                 val = (mDataUsage - mOldDataUsage) / MB;
+            } else if (type == 1) {
+                val = (mDataUsage - mOldDataUsage) / KB;
             }
             mOldDataUsage = mDataUsage;
 
@@ -139,9 +140,9 @@ public class WindowService extends Service {
             final TextView damage = new TextView(context);
 
             if (type == 0) {
-                damage.setText("-" + String.format("%.2f", VALUE) + "KB");
-            } else {
                 damage.setText("-" + String.format("%.2f", VALUE) + "MB");
+            } else {
+                damage.setText("-" + String.format("%.2f", VALUE) + "KB");
             }
 
             // 여기도 저장된 값 불러와야함
@@ -172,13 +173,7 @@ public class WindowService extends Service {
                 mAnimation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
 
             // 만들어진 것 위에 다른 것이 덮어버리면 그 아래있는건 수정 불가하다
-
-            if (type == 0)
-                units = new int[]{10, 100, 500};
-            else if (type == 1)
-                units = new int[]{1, 10, 100};
-//            if (VALUE >= units[unit]) {
-            if (VALUE >= 0 && counter <= limit) {
+            if (VALUE >= unit && counter <= limit) {
                 VALUE = 0;
                 mManager.addView(layout, mParam);
                 new Thread(new Runnable() {
